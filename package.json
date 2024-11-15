@@ -1,24 +1,25 @@
 {
   "name": "anibuu",
   "version": "0.0.1",
-  "description": "Site were you can see Anime in many diffrent languages!",
-  "main": "main.js",
+  "description": "Website that represents Anime for the publicum in many languages.",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikas17mc/aniBuu.git"
   },
   "keywords": [
-    "website",
     "anime",
-    "manyLanguages"
+    "website",
+    "manyLanguages",
+    "funny"
   ],
   "author": "ニコライ",
   "license": "MIT",
-  "dependencies": {
-    "express": "^4.21.1",
-    "serve-index": "^1.9.1"
+  "bugs": {
+    "url": "https://github.com/nikas17mc/aniBuu/issues"
   },
-  "devDependencies": {
-    "dotenv": "^16.4.5"
-  }
+  "homepage": "https://github.com/nikas17mc/aniBuu#readme"
 }
