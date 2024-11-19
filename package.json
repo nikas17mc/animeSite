@@ -1,25 +1,48 @@
 {
+
   "name": "anibuu",
   "version": "0.0.1",
   "description": "Website that represents Anime for the publicum in many languages.",
-  "main": "app.js",
-  "scripts": {
-    "test": "node app.js"
-  },
+  "author": "ニコライ",
+  "contributors": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nikas17mc/aniBuu.git"
   },
+  "license": "MIT",
   "keywords": [
     "anime",
     "website",
     "manyLanguages",
     "funny"
   ],
-  "author": "ニコライ",
-  "license": "MIT",
+
+  "homepage": "https://github.com/nikas17mc/aniBuu#readme",
   "bugs": {
     "url": "https://github.com/nikas17mc/aniBuu/issues"
   },
-  "homepage": "https://github.com/nikas17mc/aniBuu#readme"
+  
+  "dependencies": {
+    "animejs": "^3.2.2",
+    "express": "^4.21.1",
+    "path": "^0.12.7",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "files": [
+    "bin/",
+    "public/",
+    "src/",
+    "app.js",
+    "LICENSE",
+    "HISTORY.md"
+  ],
+  "engines": {
+    "node": ">= 20.11.0"
+  },
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  }
 }

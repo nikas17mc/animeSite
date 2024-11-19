@@ -1,0 +1,8 @@
+extends ../views/layout
+block content
+    .row
+        p #{paragraph}
+    ul
+        - var list = ['Hello','World','!']
+        each item in list
+            li= item
