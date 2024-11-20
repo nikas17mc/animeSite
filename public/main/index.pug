@@ -1,8 +1,20 @@
 extends ../views/layout
 block content
-    .row
-        p #{paragraph}
-    ul
-        - var list = ['Hello','World','!']
-        each item in list
-            li= item
+    if isAuthenticated
+      h1 Hello, #{user}!
+      p
+        a(href="/user") Account
+      p
+        a(href="/logout") Logout
+    else
+        h1 Login
+        form(action="/login", method="post")
+            p
+                label(for="user") Username: 
+                input#user(name="user", type="text", required)
+            p
+                label(for="pass") Password: 
+                input#pass(name="pass", type="password", required)
+            p
+                button(type="submit") Login
+        p #{errorMessage}

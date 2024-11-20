@@ -3,7 +3,10 @@ let mainTitle = 'Node JS :: Test';
 
 
 router.get('*', (req, res, next) => {
-    res.status(404).render('error',{error: 'Seite nicht gefunden'})
+    res.status(404).render('error',{
+        mainTitle: 'Error Status (404)',
+        error: 'Seite nicht gefunden'
+    })
 });
 
 router.use((err, req, res, next) => {
