@@ -43,6 +43,6 @@
     "node": ">= 20.11.0"
   },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   }
 }
