@@ -1,5 +1,4 @@
 {
-
   "name": "anibuu",
   "version": "0.0.1",
   "description": "Website that represents Anime for the publicum in many languages.",
@@ -16,15 +15,15 @@
     "manyLanguages",
     "funny"
   ],
-
   "homepage": "https://github.com/nikas17mc/aniBuu#readme",
   "bugs": {
     "url": "https://github.com/nikas17mc/aniBuu/issues"
   },
-  
   "dependencies": {
     "animejs": "^3.2.2",
+    "escape-html": "^1.0.3",
     "express": "^4.21.1",
+    "express-session": "^1.18.1",
     "path": "^0.12.7",
     "pug": "^3.0.3"
   },

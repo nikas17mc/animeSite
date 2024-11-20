@@ -1,22 +1,22 @@
+const escapeHtml = require('escape-html');
 const router = require('express').Router();
-let mainTitle = 'Node JS :: Test';
-let ssKey = sessionStorage.getItem('sskey');
-let randomValue = require('../modules/randomizer')
+
+
+// let mainTitle = 'Node JS :: Test';
 
 
 router.get('/user', (req, res) => {
-    !ssKey ? loginPage() : viewUser();
-
-
-
-    function loginPage() {
-        sessionStorage.setItem('sskey', randomValue);
-        res.status(200).send("new connection")
-    }
-
-    function viewUser() {
-
-    }
+    console.time('user');
+    let ssKey = req.session.user;
+    if (!ssKey) {
+        return res.redirect('/')
+    } else {
+        res.status(200).render('user', {
+            mainTitle: `Welcome back ${escapeHtml(req.session.user)}`,
+            message: `Welcome back ${escapeHtml(req.session.user)}`
+        });
+    };
+    console.timeEnd('user');
 });
 
 module.exports = router;

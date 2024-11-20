@@ -1,0 +1,11 @@
+extends ../views/layout
+block content
+    .row
+        // Set variable from user.js
+        p #{message}
+    ul
+        // Define variable
+        - var list = ['Hello','World','!']
+        // Make forEach loop
+        each item in list
+            li= item
