@@ -1,8 +1,77 @@
-html(lang="en")
+doctype html
+html(lang="de")
     head
+        title= mainTitle
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title= mainTitle
+        //- Externe CSS-Datei
+        link(rel="shortcut icon", href="/assets/icons/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/css/header.css", type="text/css")
+        link(rel="stylesheet", href="/css/variable.css", type="text/css")
+        link(rel="stylesheet", href=css, type="text/css") 
     body
-    div.container
-        block content
+        header 
+            - var resultUser = user.data
+            .navigation
+                .icon 
+                    svg(class="hamburger-icon", width="40", height="40", viewBox="0 0 80 80", xmlns="http://www.w3.org/2000/svg")
+                        rect(x="21.25", y="23.75", width="37.5", height="2.5", stroke-width="2.5")
+                        rect(x="21.25", y="38.75", width="37.5", height="2.5", stroke-width="2.5")
+                        rect(x="21.25", y="53.75", width="37.5", height="2.5", stroke-width="2.5")
+                .search-box 
+                    .search-field
+                    .icon 
+                        svg(class="search-icon", width="40", height="40", viewBox="0 0 80 80", xmlns="http://www.w3.org/2000/svg")
+                            rect(x="48.1384", y="41.6349", width="25", height="10", rx="2", transform="rotate(40 48.1384 41.6349)", stroke-width="5")
+                            circle(cx="32.7106", cy="34.6349", r="20", stroke-width="5")
+                            circle(cx="32.7106", cy="34.6349", r="15", stroke-width="5")
+            .logo-vpn 
+                .logo
+                    img(src="/assets/icons/AniBuu_Logo.png", alt="")
+                .icon
+                    svg(class="globe-icon", width="40", height="40", viewBox="0 0 80 80", xmlns="http://www.w3.org/2000/svg")
+                        path(d="M13.75 30C12.3693 30 11.25 31.1193 11.25 32.5C11.25 33.8807 12.3693 35 13.75 35V30ZM66.25 35C67.6307 35 68.75 33.8807 68.75 32.5C68.75 31.1193 67.6307 30 66.25 30V35ZM14.0649 46.8747C12.6842 46.8747 11.5649 47.994 11.5649 49.3747C11.5649 50.7554 12.6842 51.8747 14.0649 51.8747V46.8747ZM66.5649 51.8747C67.9457 51.8747 69.0649 50.7554 69.0649 49.3747C69.0649 47.994 67.9457 46.8747 66.5649 46.8747V51.8747ZM67.5 40C67.5 55.1878 55.1878 67.5 40 67.5V72.5C57.9493 72.5 72.5 57.9493 72.5 40H67.5ZM40 67.5C24.8122 67.5 12.5 55.1878 12.5 40H7.5C7.5 57.9493 22.0507 72.5 40 72.5V67.5ZM12.5 40C12.5 24.8122 24.8122 12.5 40 12.5V7.5C22.0507 7.5 7.5 22.0507 7.5 40H12.5ZM40 12.5C55.1878 12.5 67.5 24.8122 67.5 40H72.5C72.5 22.0507 57.9493 7.5 40 7.5V12.5ZM40 67.5C39.015 67.5 37.8795 67.0542 36.6288 65.8451C35.3661 64.6243 34.1147 62.7371 33.0096 60.2112C30.8026 55.1666 29.375 48.0229 29.375 40H24.375C24.375 48.5457 25.8855 56.4019 28.4288 62.2152C29.6989 65.1182 31.2757 67.6244 33.1535 69.4398C35.0433 71.2668 37.3607 72.5 40 72.5V67.5ZM29.375 40C29.375 31.9771 30.8026 24.8334 33.0096 19.7888C34.1147 17.2629 35.3661 15.3757 36.6288 14.1549C37.8795 12.9458 39.015 12.5 40 12.5V7.5C37.3607 7.5 35.0433 8.73315 33.1535 10.5602C31.2757 12.3756 29.6989 14.8818 28.4288 17.7847C25.8855 23.5981 24.375 31.4543 24.375 40H29.375ZM40 72.5C42.6393 72.5 44.9567 71.2668 46.8465 69.4398C48.7243 67.6244 50.3011 65.1182 51.5712 62.2152C54.1145 56.4019 55.625 48.5457 55.625 40H50.625C50.625 48.0229 49.1974 55.1666 46.9904 60.2112C45.8853 62.7371 44.6339 64.6243 43.3712 65.8451C42.1205 67.0542 40.985 67.5 40 67.5V72.5ZM55.625 40C55.625 31.4543 54.1145 23.5981 51.5712 17.7847C50.3011 14.8818 48.7243 12.3756 46.8465 10.5602C44.9567 8.73315 42.6393 7.5 40 7.5V12.5C40.985 12.5 42.1205 12.9458 43.3712 14.1549C44.6339 15.3757 45.8853 17.2629 46.9904 19.7888C49.1974 24.8334 50.625 31.9771 50.625 40H55.625ZM13.75 35H66.25V30H13.75V35ZM14.0649 51.8747H66.5649V46.8747H14.0649V51.8747Z")
+            .icon 
+                i.night 
+            if (isAuthenticated)
+                .account 
+                    .icon.icon-box 
+                        img(src="../assets/pictures/profileImg.png", alt="profileImg")
+                    label(for="dropdown-toggle", class="dropdown-label")
+                    input(type="checkbox", id="dropdown-toggle")
+                    .dropdown-menu 
+                        ul 
+                            li
+                                a(href="/user/" + "id" + "/profile") My Castle
+                                a(href="/user/" + "id" + "/settings") fffff
+                                a(href="/logout") Teleport back
+                script.
+                    document.addEventListener('click', function (event) {
+                        const checkbox = document.getElementById('dropdown-toggle');
+                        const accountBox = document.querySelector('.account');
+
+                        // Schließt das Dropdown, wenn außerhalb geklickt wird
+                        if (!accountBox.contains(event.target)) {
+                            checkbox.checked = false;
+                        }
+                    });
+            else
+                .login-register
+                    .subtract 
+                        p.text SIGN IN
+                    .rectangle
+                        p.text SIGN UP
+    block content
+
+
+
+    block footer
+        footer
+            p | AniBuu © 2024 - Alle Rechte vorbehalten.
+            ul.socials
+                li
+                    a(href="" target="_blank") Twitter
+                li
+                    a(href="" target="_blank") Instagram
+        script.
+

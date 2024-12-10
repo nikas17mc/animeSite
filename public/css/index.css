@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+}
+
+.filter {
+    position: sticky;
+    padding: 20px 17.5px 0 17.5px;
+    background-color: #06202f;
+    display: flex;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+#filter-container-toggle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.filter-label {
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+}
+
+.filter input[type="checkbox"]:checked ~ .filter-container {
+    visibility: visible;
+}
+
+.filter-container {
+    position: absolute;
+    background-color: #06202f;
+    top: 0px;
+    left: 0;
+    padding: 30px;
+    display: inline-flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    visibility: hidden;
+
+}
+
+#vd-tp, #sts {
+    margin-block: 10px;
+    padding: 10px;
+    background-color: limegreen;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1.05em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+hr {
+    margin-block: 30px;
+}
+
+label {
+    font-size: 1.2em;
+    font-family: "Arial";
+}
+
+.result-container {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    /*! gap: 10px; */
+    border-radius: 15px;
+    background-color: yellowgreen;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.oberblock {
+    max-height: 200px;
+}
+
+.oberblock img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.unterblock {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+    background-color: blueviolet;
+}
+
+.unterblock a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: end;
+    gap: 10px;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 10px;
+    width: 250px;
+    box-shadow: -3px 1px 5px 0.5px;
+    border-radius: 10px;
+}
+
+.anime-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    /* text-align: end; */
+}
+
+.status {
+    font-size: smaller;
+    color: burlywood;
+}
+
+.extra-info {
+    display: inline-flex;
+    /*! align-items: flex-end; */
+    /*! justify-content: end; */
+    padding: 4px 5px;
+    border-radius: 10px;
+    background-color: blue;
+}
+
+.type {
+    text-align: end;
+}
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination form {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: blanchedalmond;
+    cursor:pointer;
+}
+
+.prevNumber,
+.nextNumber {
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: burlywood;
+}
+
+.rightPage {
+    position: relative;
+    top: -10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: burlywood;
+}

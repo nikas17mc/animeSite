@@ -1,20 +1,90 @@
 extends ../views/layout
 block content
-    if isAuthenticated
-      h1 Hello, #{user}!
-      p
-        a(href="/user") Account
-      p
-        a(href="/logout") Logout
-    else
-        h1 Login
-        form(action="/login", method="post")
-            p
-                label(for="user") Username: 
-                input#user(name="user", type="text", required)
-            p
-                label(for="pass") Password: 
-                input#pass(name="pass", type="password", required)
-            p
-                button(type="submit") Login
-        p #{errorMessage}
+    - var resultData = result.data
+    //- - var resultData = {} 
+    - var page = result.pageNumber
+    main
+        .filter#filter-sidebar
+            .icon
+                svg(class="filter-icon", width="40", height="40", viewBox="0 0 80 80", xmlns="http://www.w3.org/2000/svg")
+                    rect(x="21.25", y="23.75", width="37.5", height="2.5", stroke-width="2.5")
+                    rect(x="26.25", y="38.75", width="28.5", height="2.5", stroke-width="2.5")
+                    rect(x="31.25", y="53.75", width="19.5", height="2.5", stroke-width="2.5")
+            label(for="filter-container-toggle", class="filter-label")
+            input(type="checkbox", id="filter-container-toggle")
+            form.filter-container(id="filter-form")
+                label(for="vd-tp") Video-Type:
+                select.filter-selector#vd-tp(name="vd-tp")
+                    option(value="mv") Movie
+                    option(value="ov") OVA
+                    option(value="on") ONA
+                    option(value="sc") Special
+                    option(value="tv") TV
+                hr
+                label(for="sts") Status:
+                select.filter-selector#sts(name="sts")
+                    option(value="all") All
+                    option(value="fsh") Finished
+                    option(value="upc") Upcoming
+                    option(value="ong") Ongoing
+            script.
+                document.addEventListener("click", function(){
+                    const fl_checkbox = document.getElementById('filter-container-toggle');
+                    const filterBox = document.querySelector('.filter');
+
+                    // Schließt das Dropdown, wenn außerhalb geklickt wird
+                    if (!filterBox.contains(event.target)) {
+                        fl_checkbox.checked = false;
+                    }
+                });
+                window.addEventListener("load", () => {
+                    const form = document.getElementById("filter-form");
+                    const selects = document.querySelectorAll('.filter-selector')
+                    
+                    //- form.action = 
+                    selects.forEach((select) => {
+                        select.addEventListener("change", function() {
+                            const params = Array.from(selects)
+                            .map(s => `${s.name}=${encodeURIComponent(s.value)}`)
+                            .join('&');
+                            form.action = `?${params}`;
+                            form.submit();
+                        })
+                    })
+                })
+        .result-container
+            if Object.keys(resultData).length > 0
+                each item in resultData
+                    div.block
+                        .oberblock
+                            img(src=item.picture, alt="Anime-Bild" loading="lazy")
+                        .unterblock
+                            a(href='/show/' + '') 
+                                .name
+                                    p.anime-name.truncate= item.synonyms[0]
+                                    span.status= item.status
+                                    p.type= item.type
+                                    p.episodes= item.episodes + " Episode"
+                                .extra-info 
+                                    p.year= item.animeSeason.year ? item.animeSeason.year : "///"
+            else
+                p Es gibt nichts zu sehen!
+    .pagination
+        form(id="pagination-form")
+            button(type="submit", onclick=`changePage(${+page - 1})`, disabled= !result.hasPrevPage ) <- 
+            if page == 1
+                p.prevNumber --
+            else
+                p.prevNumber(style="display:inline-block") #{+page - 1}
+            p.rightPage #{page}
+            if page == result.totalPages
+                p.nextNumber --
+            else
+                p.nextNumber(style="display:inline-block") #{+page + 1}
+            button(type="submit", onclick=`changePage(${+page + 1})`, disabled= !result.hasNextPage ) -> 
+        script.
+            function changePage(page){
+                const form = document.getElementById('pagination-form');
+                form.action = `/page/${page}`;
+                form.submit();
+            } 

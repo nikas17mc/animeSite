@@ -1,4 +1,14 @@
-extends layout
+extends layout 
 block content
-    h1= message
-    p #{error}
+    //- Datei: views/error.pug
+    main
+        h1 404: BUU! Diese Seite gibt es nicht
+        .illustration-container
+            //- Hauptillustration
+            img(src="/images/halloween-ghost.png" alt="Freundlicher Geist")
+        p.description 
+            | „Du hast wohl den falschen Weg in die Geisterbahn genommen! Hier ist nichts zu sehen. Aber wir bringen dich zurück auf den richtigen Pfad.“
+        .actions
+            a.button(href="/") Zur Startseite
+            a.button(href="/search") Anime suchen
+            a.button.easter-egg(href="#") 🎃 Halloween-Special entdecken!

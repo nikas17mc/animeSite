@@ -1,4 +1,5 @@
 const express = require('express');
+// const sql = require('../modules/database');
 const router = express.Router();
 let mainTitle = 'Node JS :: Test'; // Soll später benutzt werden
 // const randomValue = require('../modules/randomizer')();
@@ -13,10 +14,22 @@ let mainTitle = 'Node JS :: Test'; // Soll später benutzt werden
 //     });
 // });
 
-router.post('/login', express.urlencoded({ extends: false }), function (req, res, next) {
+router.post('/login', function (req, res, next) {
     const { user, pass } = req.body;
     console.time('login');
     if (user == 'Nikolai' && pass == 'admin') {
+        req.session.regenerate(function (error) {
+            if (error) { next(error) };
+
+            // Get user from body and store in session
+            req.session.user = req.body.user;
+
+            req.session.save(function (error) {
+                if (error) { return next(error) };
+                res.redirect('/admin');
+            })
+        });
+    } else if (user == 'user' && pass == 'user') {
         req.session.regenerate(function (error) {
             if (error) { next(error) };
 

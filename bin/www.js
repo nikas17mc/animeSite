@@ -48,5 +48,5 @@ function onListening() {
     let bind = typeof addr === 'string'
     ? 'Pipe ' + addr
     : 'Port ' + addr.port;
-    console.debug('Listening on:', bind);
+    console.debug('\x1b[34m%s\x1b[33m%s\x1b[0m','Listening on: ', bind);
 }

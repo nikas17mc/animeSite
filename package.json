@@ -42,6 +42,7 @@
     "node": ">= 20.11.0"
   },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "nodemon -e pug,js,css,json"
   }
 }
