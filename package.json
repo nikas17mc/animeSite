@@ -1,0 +1,71 @@
+{
+    "name": "anibuu",
+    "version": "0.0.1",
+    "description": "Website that represents Anime for the publicum in many languages.",
+    "author": "ニコライ",
+    "contributors": [
+        "ニコライ <https://github.com/nikas17mc>",
+        "Nordgrad-de <https://github.com/Nordgrad-de>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nikas17mc/aniBuu.git"
+    },
+    "license": "ISC",
+    "keywords": [
+        "anime",
+        "website",
+        "manyLanguages",
+        "funny",
+        "cool",
+        "free",
+        "publicum",
+        "openSource"
+    ],
+    "homepage": "https://github.com/nikas17mc/aniBuu#readme",
+    "bugs": {
+        "url": "https://github.com/nikas17mc/aniBuu/issues"
+    },
+    "dependencies": {
+        "escape-html": "^1.0.3",
+        "express": "^4.21.2",
+        "express-session": "^1.18.1",
+        "fs": "^0.0.1-security",
+        "keygrip": "^1.1.0",
+        "mongodb": "^6.12.0",
+        "mongoose": "^8.9.3",
+        "path": "^0.12.7",
+        "pug": "^3.0.3",
+        "simple-icons": "^14.2.0"
+    },
+    "devDependencies": {
+        "child_process": "^1.0.2",
+        "dotenv": "^16.4.7",
+        "pm2": "^5.4.3"
+    },
+    "directories": {
+        "example": "examples",
+        "doc": "docs",
+        "bin": "bin"
+    },
+    "files": [
+        "bin",
+        "public",
+        "src",
+        "examples",
+        "docs",
+        "LICENSE",
+        "server.js",
+        ".gitignore",
+        "package.json"
+    ],
+    "engines": {
+        "node": ">= 20.11.0"
+    },
+    "scripts": {
+        "start": "node ./bin/www",
+        "test": "nodemon -e pug,js,css,json",
+        "mongoTest": "node mongo.js",
+        "pm2-debug": "pm2 start ./test/pm2.config.js --no-daemon"
+    }
+}
